@@ -43,7 +43,7 @@ templates:
     run_definition:
       - <<allowed_streaming>>
     ignore_blank_results: true
-    mdblist_list: https://mdblist.com/lists/plexmetamanager/<<key>>-<<library_type>>s<<watch_region>>
+    mdblist_list: https://mdblist.com/lists/<<key>>-<<library_type>>s<<watch_region>>
     conditionals:
       allowed_streaming:
         conditions:
@@ -87,73 +87,97 @@ templates:
 overlays:
 
   Netflix:
-    variables: {key: netflix, weight: 160}
+    variables: {key: plexmetamanager/netflix, weight: 200}
     template: [name: standard, name: mdb_streaming]
 
   Prime:
-    variables: {key: amazon, weight: 150}
+    variables: {key: plexmetamanager/amazon, weight: 190}
     template: [name: standard, name: mdb_streaming]
 
   Disney:
-    variables: {key: disney, weight: 140}
+    variables: {key: plexmetamanager/disney, weight: 180}
     template: [name: standard, name: mdb_streaming]
 
-  HBO-Max:
-    variables: {key: hbomax, weight: 130}
+  Max:
+    variables: {key: zarox/max, weight: 170}
     template: [name: standard, name: mdb_streaming]
 
   Crunchyroll:
-    variables: {key: crunchyroll, weight: 120, allowed_libraries: show}
+    variables: {key: plexmetamanager/crunchyroll, weight: 160, allowed_libraries: show}
     template: [name: standard, name: mdb_streaming]
 
   YouTube:
-    variables: {key: youtube, weight: 110}
+    variables: {key: plexmetamanager/youtube, weight: 150}
     template: [name: standard, name: mdb_streaming]
 
   Hulu:
-    variables: {key: hulu, weight: 100}
+    variables: {key: plexmetamanager/hulu, weight: 140}
     template: [name: standard, name: mdb_streaming]
 
   Paramount:
-    variables: {key: paramount, weight: 90}
+    variables: {key: plexmetamanager/paramount, weight: 130}
     template: [name: standard, name: mdb_streaming]
 
   AppleTV:
-    variables: {key: appletv, weight: 80}
+    variables: {key: plexmetamanager/appletv, weight: 120}
     template: [name: standard, name: mdb_streaming]
 
   Peacock:
-    variables: {key: peacock, weight: 70}
+    variables: {key: plexmetamanager/peacock, weight: 110}
     template: [name: standard, name: mdb_streaming]
 
   Showtime:
-    variables: {key: showtime, weight: 60}
+    variables: {key: plexmetamanager/showtime, weight: 100}
     template: [name: standard, name: mdb_streaming]
 
   discovery+:
-    variables: {key: discovery, weight: 58, allowed_libraries: show}
+    variables: {key: plexmetamanager/discovery, weight: 95, allowed_libraries: show}
+    template: [name: standard, name: mdb_streaming]
+    
+  Freevee:
+    variables: {key: zarox/freevee, weight: 90}
+    template: [name: standard, name: mdb_streaming]
+
+  Tubi:
+    variables: {key: zarox/tubi, weight: 85}
+    template: [name: standard, name: mdb_streaming]
+    
+  MGM:
+    variables: {key: zarox/mgm, weight: 80}
+    template: [name: standard, name: mdb_streaming]
+
+  Fubo:
+    variables: {key: zarox/fubo, weight: 80}
+    template: [name: standard, name: mdb_streaming]
+    
+  AMC:
+    variables: {key: zarox/amc, weight: 75}
+    template: [name: standard, name: mdb_streaming]
+    
+  Viki:
+    variables: {key: zarox/viki, weight: 70}
     template: [name: standard, name: mdb_streaming]
 
   Crave:
-    variables: {key: crave, weight: 55}
+    variables: {key: plexmetamanager/crave, weight: 65}
     template: [name: standard, name: mdb_streaming]
 
   NOW:
-    variables: {key: now, weight: 50}
+    variables: {key: plexmetamanager/now, weight: 50}
     template: [name: standard, name: mdb_streaming]
 
   All 4:
-    variables: {key: all4, weight: 40}
+    variables: {key: plexmetamanager/all4, weight: 40}
     template: [name: standard, name: mdb_streaming]
 
   britbox:
-    variables: {key: britbox, weight: 30}
+    variables: {key: plexmetamanager/britbox, weight: 30}
     template: [name: standard, name: mdb_streaming]
 
   BET+:
-    variables: {key: bet, weight: 20}
+    variables: {key: plexmetamanager/bet, weight: 20}
     template: [name: standard, name: mdb_streaming]
 
   hayu:
-    variables: {key: hayu, weight: 10, allowed_libraries: show}
+    variables: {key: plexmetamanager/hayu, weight: 10, allowed_libraries: show}
     template: [name: standard, name: mdb_streaming]
