@@ -48,40 +48,40 @@ templates:
       allowed_streaming:
         conditions:
           - region.not: uk
-            key: [all4, britbox, hayu, now]
+            key: [plexmetamanager/all4, plexmetamanager/britbox, plexmetamanager/hayu, plexmetamanager/now]
             value: False
           - region.not: ca
-            key: [crave]
+            key: [plexmetamanager/crave]
             value: False
           - region: ca
-            key: [hbomax, showtime]
+            key: [zarox/max, plexmetamanager/showtime]
             value: False
       watch_region:
         default: ""
         conditions:
           - region: ca
-            key: [amazon, disney, netflix]
+            key: [plexmetamanager/amazon, plexmetamanager/disney, plexmetamanager/netflix]
             value: "-ca"
           - region: da
-            key: [amazon, disney, netflix]
+            key: [plexmetamanager/amazon, plexmetamanager/disney, plexmetamanager/netflix]
             value: "-da"
           - region: de
-            key: [amazon, disney, netflix]
+            key: [plexmetamanager/amazon, plexmetamanager/disney, plexmetamanager/netflix]
             value: "-de"
           - region: es
-            key: [amazon, disney, netflix]
+            key: [plexmetamanager/amazon, plexmetamanager/disney, plexmetamanager/netflix]
             value: "-es"
           - region: fr
-            key: [amazon, disney, netflix]
+            key: [plexmetamanager/amazon, plexmetamanager/disney, plexmetamanager/netflix]
             value: "-fr"
           - region: it
-            key: [amazon, disney, netflix]
+            key: [plexmetamanager/amazon, plexmetamanager/disney, plexmetamanager/netflix]
             value: "-it"
           - region: pt-br
-            key: [amazon, disney, netflix]
+            key: [plexmetamanager/amazon, plexmetamanager/disney, plexmetamanager/netflix]
             value: "-pt-br"
           - region: uk
-            key: [amazon, disney, netflix]
+            key: [plexmetamanager/amazon, plexmetamanager/disney, plexmetamanager/netflix]
             value: "-uk"
 
 overlays:
@@ -89,7 +89,7 @@ overlays:
   Netflix:
     variables: {key: plexmetamanager/netflix, weight: 200}
     template: [name: standard, name: mdb_streaming]
-
+    
   Prime:
     variables: {key: plexmetamanager/amazon, weight: 190}
     template: [name: standard, name: mdb_streaming]
@@ -131,35 +131,31 @@ overlays:
     template: [name: standard, name: mdb_streaming]
 
   discovery+:
-    variables: {key: plexmetamanager/discovery, weight: 95, allowed_libraries: show}
+    variables: {key: plexmetamanager/discovery, weight: 90, allowed_libraries: show}
     template: [name: standard, name: mdb_streaming]
     
   Freevee:
-    variables: {key: zarox/freevee, weight: 90}
-    template: [name: standard, name: mdb_streaming]
-
-  Tubi:
-    variables: {key: zarox/tubi, weight: 85}
+    variables: {key: zarox/freevee, weight: 80}
     template: [name: standard, name: mdb_streaming]
     
-  MGM:
-    variables: {key: zarox/mgm, weight: 80}
+  Starz:
+    variables: {key: zarox/starz, weight: 75}
     template: [name: standard, name: mdb_streaming]
 
-  Fubo:
-    variables: {key: zarox/fubo, weight: 80}
+  MGM:
+    variables: {key: zarox/mgm, weight: 70}
     template: [name: standard, name: mdb_streaming]
     
   AMC:
-    variables: {key: zarox/amc, weight: 75}
+    variables: {key: zarox/amc, weight: 65}
     template: [name: standard, name: mdb_streaming]
     
   Viki:
-    variables: {key: zarox/viki, weight: 70}
+    variables: {key: zarox/viki, weight: 60}
     template: [name: standard, name: mdb_streaming]
 
   Crave:
-    variables: {key: plexmetamanager/crave, weight: 65}
+    variables: {key: plexmetamanager/crave, weight: 55}
     template: [name: standard, name: mdb_streaming]
 
   NOW:
@@ -180,4 +176,12 @@ overlays:
 
   hayu:
     variables: {key: plexmetamanager/hayu, weight: 10, allowed_libraries: show}
+    template: [name: standard, name: mdb_streaming]
+    
+  Tubi:
+    variables: {key: zarox/tubi, weight: 8}
+    template: [name: standard, name: mdb_streaming]
+
+  Fubo:
+    variables: {key: zarox/fubo, weight: 6}
     template: [name: standard, name: mdb_streaming]
