@@ -7,13 +7,57 @@ external_templates:
     run_definition:
       - <<use_<<key>>>>
       - <<use_<<alt>>>>
-      - <<allowed_libraries>>
-
+    default:
+      key: <<overlay_name>>
+      horizontal_align: center
+      vertical_align: top
+      style: shadow
+    conditionals:
+      vertical_offset:
+        default: 50
+        conditions:
+          - vertical_align.exists: false
+            value: 50
+          - vertical_align: center
+            value: 0
+          - vertical_align: top
+            value: 50
+          - vertical_align: bottom
+            value: 30
+      horizontal_offset:
+        default: -3
+        conditions:
+          - horizontal_align: center
+            value: -3
+          - horizontal_align: [left, right]
+            value: 15
+      pmm:
+        conditions:
+          - file.exists: false
+            file_<<key>>.exists: false
+            url.exists: false
+            url_<<key>>.exists: false
+            git.exists: false
+            git_<<key>>.exists: false
+            repo.exists: false
+            repo_<<key>>.exists: false
+            value: network/<<style>>/<<key>>
+    allowed_libraries: show
+    group: networks
+    
 templates:
   networks:
+    default:
+      key: <<overlay_name>>
+      search: <<key>>
     ignore_blank_results: true
-    optional:
-      - overlay_level
+    plex_search:
+      validate: false
+      any:
+        network: <<search>>
+        
+templates:
+  networks:
     default:
       overlay: <<overlay_name>>
       horizontal_align: center
@@ -29,13 +73,6 @@ templates:
             value: 50
           - vertical_align: bottom
             value: 30
-      horizontal_offset:
-        default: -3
-        conditions:
-          - horizontal_align: center
-            value: -3
-          - horizontal_align: [left, right]
-            value: 15
     builder_level: <<builder_level>>
     plex_search:
       validate: false
